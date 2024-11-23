@@ -3,7 +3,7 @@
 - [Задание](https://github.com/netology-code/qamid-diplom)
 - [План тестирования]
 - [Отчет о тестировании]
-- [Результаты тестирования]
+- [Результаты тестирования](https://github.com/HeavensFeel03/Diplom03/blob/main/docs/Result.md)
 - [Отчеты о выявленных ошибках]
 
 
