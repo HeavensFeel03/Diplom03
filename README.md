@@ -1,7 +1,7 @@
 # Дипломный проект по профессии «Инженер по тестированию»: тестирование мобильного приложения «Мобильный хоспис»
 
 - [Задание](https://github.com/netology-code/qamid-diplom)
-- [План тестирования]
+- [План тестирования](https://github.com/HeavensFeel03/Diplom03/blob/main/docs/Plan.md)
 - [Отчет о тестировании](https://github.com/HeavensFeel03/Diplom03/blob/main/docs/Result.md)
 - [Результаты тестирования](https://github.com/HeavensFeel03/Diplom03/blob/main/docs/allure-results.zip)
 - [Отчеты о выявленных ошибках]
