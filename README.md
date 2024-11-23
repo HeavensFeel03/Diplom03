@@ -2,8 +2,8 @@
 
 - [Задание](https://github.com/netology-code/qamid-diplom)
 - [План тестирования]
-- [Отчет о тестировании]
-- [Результаты тестирования](https://github.com/HeavensFeel03/Diplom03/blob/main/docs/Result.md)
+- [Отчет о тестировании](https://github.com/HeavensFeel03/Diplom03/blob/main/docs/Result.md)
+- [Результаты тестирования](https://github.com/HeavensFeel03/Diplom03/blob/main/docs/allure-results.zip)
 - [Отчеты о выявленных ошибках]
 
 
