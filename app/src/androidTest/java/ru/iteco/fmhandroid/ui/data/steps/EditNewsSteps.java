@@ -21,11 +21,6 @@ public class EditNewsSteps {
     EditNewsPage editNews = new EditNewsPage();
 
 
-    public void waitingPageLoad() {
-        Allure.step("Ожидание загрузки страницы");
-        onView(isRoot()).perform(Utility.waitDisplayed(R.id.custom_app_bar_title_text_view, 7000));
-    }
-
     public void clickCancelButton() {
         Allure.step("Закрытие окна редактирования новости");
         editNews.cancelButton.perform(click());

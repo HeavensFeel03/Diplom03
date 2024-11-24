@@ -1,13 +1,5 @@
 package ru.iteco.fmhandroid.ui.test;
 
-import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.assertion.ViewAssertions.matches;
-import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static androidx.test.espresso.matcher.ViewMatchers.withParent;
-import static androidx.test.espresso.matcher.ViewMatchers.withText;
-
-import static java.util.EnumSet.allOf;
 
 import android.view.View;
 
@@ -22,10 +14,11 @@ import org.junit.runner.RunWith;
 
 import io.qameta.allure.android.runners.AllureAndroidJUnit4;
 import io.qameta.allure.kotlin.Description;
-import io.qameta.allure.kotlin.Epic;
 import io.qameta.allure.kotlin.junit4.DisplayName;
 import ru.iteco.fmhandroid.ui.AppActivity;
 import ru.iteco.fmhandroid.ui.data.data.Helper;
+import ru.iteco.fmhandroid.ui.data.page.AuthorizationPage;
+import ru.iteco.fmhandroid.ui.data.page.MainPage;
 import ru.iteco.fmhandroid.ui.data.steps.AuthorizationSteps;
 import ru.iteco.fmhandroid.ui.data.steps.MainSteps;
 import ru.iteco.fmhandroid.ui.data.steps.MenuBarSteps;
@@ -36,8 +29,10 @@ import ru.iteco.fmhandroid.ui.data.steps.MenuBarSteps;
 public class AuthorizationPageTest {
     AuthorizationSteps authPage = new AuthorizationSteps();
     MenuBarSteps menuBar = new MenuBarSteps();
-    MainSteps mainPage = new MainSteps();
+    MainSteps mainSteps = new MainSteps();
     View decorView;
+    AuthorizationPage authorizationPage = new AuthorizationPage();
+    MainPage mainPage = new MainPage();
 
 
     @Rule
@@ -47,10 +42,10 @@ public class AuthorizationPageTest {
     @Before
     public void setUp() {
         try {
-            authPage.waitingPageLoad();
+            authorizationPage.waitingPageLoad();
         } catch (Exception e) {
             menuBar.exitProfile();
-            authPage.waitingPageLoad();
+            authorizationPage.waitingPageLoad();
         }
     }
 
@@ -77,7 +72,7 @@ public class AuthorizationPageTest {
         authPage.addPassword(Helper.getValidPassword());
         authPage.clickButton();
         mainPage.waitingPageLoad();
-        mainPage.pageVisible();
+        mainSteps.pageVisible();
         menuBar.pageVisible();
     }
 

@@ -2,6 +2,7 @@ package ru.iteco.fmhandroid.ui.data.page;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
 import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withParent;
@@ -31,5 +32,9 @@ public class LoveIsAllPage {
                 withParent(withParent(withId(R.id.our_mission_item_material_card_view))),
                 isDisplayed()));
         viewCardButton = onView(withId(R.id.our_mission_item_open_card_image_button));
+    }
+
+    public void waitingPageLoad() {
+        onView(isRoot()).perform(Utility.waitDisplayed(R.id.our_mission_title_text_view, 7000));
     }
 }

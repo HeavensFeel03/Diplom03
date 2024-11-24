@@ -25,10 +25,6 @@ public class MainSteps {
 
     MainPage mainPage = new MainPage();
 
-    public void waitingPageLoad() {
-        Allure.step("Ожидание загрузки страницы");
-        onView(isRoot()).perform(Utility.waitDisplayed(R.id.all_news_text_view, 7000));
-    }
 
     public void pageVisible() {
         Allure.step("Проверка видимости элементов на странице");

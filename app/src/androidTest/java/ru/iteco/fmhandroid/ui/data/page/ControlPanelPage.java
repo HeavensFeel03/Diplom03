@@ -1,6 +1,7 @@
 package ru.iteco.fmhandroid.ui.data.page;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
 import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
@@ -10,6 +11,7 @@ import static ru.iteco.fmhandroid.ui.data.data.Utility.childAtPosition;
 
 import androidx.test.espresso.ViewInteraction;
 
+import io.qameta.allure.kotlin.Allure;
 import ru.iteco.fmhandroid.R;
 import ru.iteco.fmhandroid.ui.data.data.Utility;
 
@@ -47,5 +49,10 @@ public class ControlPanelPage {
                         0)));
         textNews = onView(withId(R.id.news_item_description_text_view));
 
+    }
+
+    public void waitingPageLoad() {
+        Allure.step("Ожидание загрузки страницы");
+        onView(isRoot()).perform(Utility.waitDisplayed(R.id.sort_news_material_button, 7000));
     }
 }

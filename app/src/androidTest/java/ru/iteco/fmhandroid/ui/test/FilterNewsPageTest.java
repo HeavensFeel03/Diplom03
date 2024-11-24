@@ -14,6 +14,8 @@ import io.qameta.allure.kotlin.Epic;
 import io.qameta.allure.kotlin.junit4.DisplayName;
 import ru.iteco.fmhandroid.ui.AppActivity;
 import ru.iteco.fmhandroid.ui.data.data.Helper;
+import ru.iteco.fmhandroid.ui.data.page.FilterNewsPage;
+import ru.iteco.fmhandroid.ui.data.page.MenuBarPage;
 import ru.iteco.fmhandroid.ui.data.steps.AuthorizationSteps;
 import ru.iteco.fmhandroid.ui.data.steps.ControlPanelSteps;
 import ru.iteco.fmhandroid.ui.data.steps.FilterNewsSteps;
@@ -28,8 +30,10 @@ public class FilterNewsPageTest {
     AuthorizationSteps authorizationSteps = new AuthorizationSteps();
     NewsSteps newsPage = new NewsSteps();
     MenuBarSteps menuBar = new MenuBarSteps();
+    MenuBarPage menuBarPage = new MenuBarPage();
     ControlPanelSteps controlPanel = new ControlPanelSteps();
     FilterNewsSteps controlPanelFilterPage = new FilterNewsSteps();
+    FilterNewsPage filterNewsPage = new FilterNewsPage();
 
     @Rule
     public ActivityScenarioRule<AppActivity> ActivityScenarioRule =
@@ -38,17 +42,17 @@ public class FilterNewsPageTest {
     @Before
     public void setUp() {
         try {
-            menuBar.waitingPageLoad();
+            menuBarPage.waitingPageLoad();
             menuBar.openNewsPage();
             newsPage.clickControlPanel();
             controlPanel.clickFilter();
-            controlPanelFilterPage.waitingPageLoad();
+            filterNewsPage.waitingPageLoad();
         } catch (Exception e) {
             authorizationSteps.authUser();
             menuBar.openNewsPage();
             newsPage.clickControlPanel();
             controlPanel.clickFilter();
-            controlPanelFilterPage.waitingPageLoad();
+            filterNewsPage.waitingPageLoad();
         }
     }
 

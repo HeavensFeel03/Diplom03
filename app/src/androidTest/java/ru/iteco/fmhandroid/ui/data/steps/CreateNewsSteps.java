@@ -24,11 +24,6 @@ public class CreateNewsSteps {
     CreateNewsPage createNewsPage = new CreateNewsPage();
 
 
-    public void waitingPageLoad() {
-        Allure.step("Ожидание загрузки страницы");
-        onView(isRoot()).perform(Utility.waitDisplayed(R.id.custom_app_bar_title_text_view, 7000));
-    }
-
     public void pageVisible() {
         Allure.step("Проверка видимости элементов на странице");
         createNewsPage.creatingTitle.check(matches(isDisplayed()));

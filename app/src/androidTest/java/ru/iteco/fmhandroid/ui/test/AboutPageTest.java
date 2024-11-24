@@ -17,12 +17,11 @@ import org.junit.runner.RunWith;
 
 import io.qameta.allure.android.runners.AllureAndroidJUnit4;
 import io.qameta.allure.kotlin.Description;
-import io.qameta.allure.kotlin.Epic;
 import io.qameta.allure.kotlin.junit4.DisplayName;
 import ru.iteco.fmhandroid.ui.AppActivity;
+import ru.iteco.fmhandroid.ui.data.page.AboutPage;
 import ru.iteco.fmhandroid.ui.data.steps.AboutSteps;
 import ru.iteco.fmhandroid.ui.data.steps.AuthorizationSteps;
-import ru.iteco.fmhandroid.ui.data.steps.LoveIsAllSteps;
 import ru.iteco.fmhandroid.ui.data.steps.MenuBarSteps;
 
 @DisplayName("Сценарии тестирования страницы AboutPage")
@@ -31,8 +30,8 @@ import ru.iteco.fmhandroid.ui.data.steps.MenuBarSteps;
 public class AboutPageTest {
     AuthorizationSteps authPage = new AuthorizationSteps();
     MenuBarSteps menuBar = new MenuBarSteps();
-    LoveIsAllSteps loveIsAllSteps = new LoveIsAllSteps();
     AboutSteps aboutSteps = new AboutSteps();
+    AboutPage aboutPage = new AboutPage();
 
     @Rule
     public ActivityScenarioRule<AppActivity> ActivityScenarioRule =
@@ -45,7 +44,7 @@ public class AboutPageTest {
         } catch (Exception e) {
             authPage.authUser();
             menuBar.openAboutPage();
-            aboutSteps.waitingPageLoad();
+            aboutPage.waitingPageLoad();
         }
 
     }

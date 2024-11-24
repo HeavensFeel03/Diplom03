@@ -1,11 +1,15 @@
 package ru.iteco.fmhandroid.ui.data.page;
 
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
 import androidx.test.espresso.Espresso;
 import androidx.test.espresso.ViewInteraction;
 
+import io.qameta.allure.kotlin.Allure;
 import ru.iteco.fmhandroid.R;
+import ru.iteco.fmhandroid.ui.data.data.Utility;
 
 public class CreateNewsPage {
 
@@ -37,5 +41,10 @@ public class CreateNewsPage {
         cancelButtonMessage = Espresso.onView(withId(android.R.id.message));
         cancelCancelButton = Espresso.onView(withId(android.R.id.button2));
         cancelOkButton = Espresso.onView(withId(android.R.id.button1));
+    }
+
+    public void waitingPageLoad() {
+        Allure.step("Ожидание загрузки страницы");
+        onView(isRoot()).perform(Utility.waitDisplayed(R.id.custom_app_bar_title_text_view, 7000));
     }
 }

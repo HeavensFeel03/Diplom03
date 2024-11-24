@@ -14,9 +14,9 @@ import org.junit.runner.RunWith;
 
 import io.qameta.allure.android.runners.AllureAndroidJUnit4;
 import io.qameta.allure.kotlin.Description;
-import io.qameta.allure.kotlin.Epic;
 import io.qameta.allure.kotlin.junit4.DisplayName;
 import ru.iteco.fmhandroid.ui.AppActivity;
+import ru.iteco.fmhandroid.ui.data.page.ControlPanelPage;
 import ru.iteco.fmhandroid.ui.data.steps.AuthorizationSteps;
 import ru.iteco.fmhandroid.ui.data.steps.ControlPanelSteps;
 import ru.iteco.fmhandroid.ui.data.steps.CreateNewsSteps;
@@ -35,6 +35,7 @@ public class ControlPanelTest {
     ControlPanelSteps controlPanel = new ControlPanelSteps();
     FilterNewsSteps controlPanelFilterPage = new FilterNewsSteps();
     CreateNewsSteps controlPanelCreatePage = new CreateNewsSteps();
+    ControlPanelPage controlPanelPage = new ControlPanelPage();
 
     @Rule
     public ActivityScenarioRule<AppActivity> ActivityScenarioRule =
@@ -45,12 +46,12 @@ public class ControlPanelTest {
         try {
             menuBar.openNewsPage();
             newsPage.clickControlPanel();
-            controlPanel.waitingPageLoad();
+            controlPanelPage.waitingPageLoad();
         } catch (Exception e) {
             authPage.authUser();
             menuBar.openNewsPage();
             newsPage.clickControlPanel();
-            controlPanel.waitingPageLoad();
+            controlPanelPage.waitingPageLoad();
         }
     }
 

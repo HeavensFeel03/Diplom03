@@ -13,6 +13,7 @@ import io.qameta.allure.kotlin.Description;
 import io.qameta.allure.kotlin.Epic;
 import io.qameta.allure.kotlin.junit4.DisplayName;
 import ru.iteco.fmhandroid.ui.AppActivity;
+import ru.iteco.fmhandroid.ui.data.page.LoveIsAllPage;
 import ru.iteco.fmhandroid.ui.data.steps.AuthorizationSteps;
 import ru.iteco.fmhandroid.ui.data.steps.LoveIsAllSteps;
 import ru.iteco.fmhandroid.ui.data.steps.MenuBarSteps;
@@ -25,6 +26,7 @@ public class LoveIsAllPageTest {
     AuthorizationSteps authPage = new AuthorizationSteps();
     MenuBarSteps menuBar = new MenuBarSteps();
     LoveIsAllSteps ourMissionPage = new LoveIsAllSteps();
+    LoveIsAllPage loveIsAllPage = new LoveIsAllPage();
     @Rule
     public ActivityScenarioRule<AppActivity> ActivityScenarioRule =
             new ActivityScenarioRule<>(AppActivity.class);
@@ -33,11 +35,11 @@ public class LoveIsAllPageTest {
     public void setUp() {
         try {
             menuBar.openOurMission();
-            ourMissionPage.waitingPageLoad();
+            loveIsAllPage.waitingPageLoad();
         } catch (Exception e) {
             authPage.authUser();
             menuBar.openOurMission();
-            ourMissionPage.waitingPageLoad();
+            loveIsAllPage.waitingPageLoad();
         }
     }
 

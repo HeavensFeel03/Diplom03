@@ -24,11 +24,6 @@ public class FilterNewsSteps {
     FilterNewsPage filterNewsPage = new FilterNewsPage();
 
 
-    public void waitingPageLoad() {
-        Allure.step("Ожидание загрузки страницы");
-        onView(isRoot()).perform(Utility.waitDisplayed(R.id.filter_news_title_text_view, 7000));
-    }
-
     public void pageVisible() {
         Allure.step("Проверка видимости элементов на странице");
         filterNewsPage.title.check(matches(isDisplayed()));

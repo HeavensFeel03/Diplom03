@@ -31,11 +31,6 @@ public class AuthorizationSteps {
     AuthorizationPage authorizationPage = new AuthorizationPage();
 
 
-    public void waitingPageLoad() {
-        Allure.step("Ожидание загрузки страницы");
-        onView(isRoot()).perform(Utility.waitDisplayed(R.id.enter_button, 5000));
-    }
-
     public void pageVisible() {
         Allure.step("Проверка видимости элементов на странице");
         authorizationPage.title.check(matches(isDisplayed()));

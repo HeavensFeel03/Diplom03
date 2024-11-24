@@ -19,10 +19,6 @@ import ru.iteco.fmhandroid.ui.data.page.NewsPage;
 public class NewsSteps {
     NewsPage newsPage = new NewsPage();
 
-    public void waitingPageLoad() {
-        Allure.step("Ожидание загрузки страницы");
-        onView(isRoot()).perform(Utility.waitDisplayed(R.id.container_list_news_include, 7000));
-    }
 
     public void pageVisible() {
         Allure.step("Проверка видимости элементов на странице");

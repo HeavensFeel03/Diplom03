@@ -23,11 +23,6 @@ public class AboutSteps {
     AboutPage aboutPage = new AboutPage();
 
 
-    public void waitingPageLoad() {
-        Allure.step("Ожидание загрузки страницы");
-        onView(isRoot()).perform(Utility.waitDisplayed(R.id.about_version_title_text_view, 7000));
-    }
-
     public void pageVisible() {
         Allure.step("Проверка видимости элементов на странице");
         aboutPage.titleVersion.check(ViewAssertions.matches(isDisplayed()));

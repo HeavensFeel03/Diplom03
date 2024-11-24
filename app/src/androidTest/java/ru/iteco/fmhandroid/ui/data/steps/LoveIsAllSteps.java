@@ -25,9 +25,6 @@ public class LoveIsAllSteps {
 
     LoveIsAllPage loveIsAllPage = new LoveIsAllPage();
 
-    public void waitingPageLoad() {
-        onView(isRoot()).perform(Utility.waitDisplayed(R.id.our_mission_title_text_view, 7000));
-    }
 
     public void pageVisible() {
         Allure.step("Проверка видимости элементов на странице");

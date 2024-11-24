@@ -14,6 +14,7 @@ import io.qameta.allure.kotlin.Epic;
 import io.qameta.allure.kotlin.junit4.DisplayName;
 import ru.iteco.fmhandroid.ui.AppActivity;
 import ru.iteco.fmhandroid.ui.data.data.Helper;
+import ru.iteco.fmhandroid.ui.data.page.NewsFilterPage;
 import ru.iteco.fmhandroid.ui.data.steps.AuthorizationSteps;
 import ru.iteco.fmhandroid.ui.data.steps.MenuBarSteps;
 import ru.iteco.fmhandroid.ui.data.steps.NewsFilterSteps;
@@ -28,6 +29,7 @@ public class NewsFilterPageTest {
     NewsSteps newsPage = new NewsSteps();
     MenuBarSteps menuBar = new MenuBarSteps();
     NewsFilterSteps newsFilterPage = new NewsFilterSteps();
+    NewsFilterPage newsFilterPages = new NewsFilterPage();
 
     @Rule
     public ActivityScenarioRule<AppActivity> ActivityScenarioRule =
@@ -38,12 +40,12 @@ public class NewsFilterPageTest {
         try {
             menuBar.openNewsPage();
             newsPage.clickFilter();
-            newsFilterPage.waitingPageLoad();
+            newsFilterPages.waitingPageLoad();
         } catch (Exception e) {
             authPage.authUser();
             menuBar.openNewsPage();
             newsPage.clickFilter();
-            newsFilterPage.waitingPageLoad();
+            newsFilterPages.waitingPageLoad();
         }
     }
 

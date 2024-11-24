@@ -1,12 +1,15 @@
 package ru.iteco.fmhandroid.ui.data.page;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 import androidx.test.espresso.ViewInteraction;
 
+import io.qameta.allure.kotlin.Allure;
 import ru.iteco.fmhandroid.R;
+import ru.iteco.fmhandroid.ui.data.data.Utility;
 
 public class MenuBarPage {
 
@@ -29,4 +32,10 @@ public class MenuBarPage {
         profileButton = onView(withId(R.id.authorization_image_button));
         logOut = onView(withText("Log out"));
     }
+
+    public void waitingPageLoad() {
+        Allure.step("Ожидание загрузки страницы");
+        onView(isRoot()).perform(Utility.waitDisplayed(R.id.main_menu_image_button, 5000));
+    }
+
 }

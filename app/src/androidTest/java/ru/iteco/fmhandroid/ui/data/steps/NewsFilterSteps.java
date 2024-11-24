@@ -1,30 +1,19 @@
 package ru.iteco.fmhandroid.ui.data.steps;
 
-import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
-import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
-import androidx.test.espresso.ViewInteraction;
 
 import io.qameta.allure.kotlin.Allure;
-import ru.iteco.fmhandroid.R;
-import ru.iteco.fmhandroid.ui.data.data.Utility;
 import ru.iteco.fmhandroid.ui.data.page.NewsFilterPage;
 
 public class NewsFilterSteps {
     NewsFilterPage newsFilterPage = new NewsFilterPage();
 
-
-    public void waitingPageLoad() {
-        Allure.step("Ожидание загрузки страницы");
-        onView(isRoot()).perform(Utility.waitDisplayed(R.id.filter_news_title_text_view, 7000));
-    }
 
     public void pageVisible() {
         Allure.step("Проверка видимости элементов на странице");

@@ -29,11 +29,6 @@ public class ControlPanelSteps {
     ControlPanelPage controlPanelPage = new ControlPanelPage();
 
 
-    public void waitingPageLoad() {
-        Allure.step("Ожидание загрузки страницы");
-        onView(isRoot()).perform(Utility.waitDisplayed(R.id.sort_news_material_button, 7000));
-    }
-
     public void pageVisible() {
         Allure.step("Проверка видимости элементов на странице");
         controlPanelPage.title.check(matches(isDisplayed()));

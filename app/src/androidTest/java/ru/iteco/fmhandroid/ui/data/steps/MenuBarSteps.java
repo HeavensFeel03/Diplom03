@@ -15,17 +15,14 @@ import androidx.test.espresso.matcher.ViewMatchers;
 import io.qameta.allure.kotlin.Allure;
 import ru.iteco.fmhandroid.R;
 import ru.iteco.fmhandroid.ui.data.data.Utility;
+import ru.iteco.fmhandroid.ui.data.page.AboutPage;
 import ru.iteco.fmhandroid.ui.data.page.MenuBarPage;
 
 public class MenuBarSteps {
 
     MenuBarPage menuBarPage = new MenuBarPage();
+    //AboutPage aboutPage = new AboutPage();
 
-
-    public void waitingPageLoad() {
-        Allure.step("Ожидание загрузки страницы");
-        onView(isRoot()).perform(Utility.waitDisplayed(R.id.main_menu_image_button, 5000));
-    }
 
     public void pageVisible() {
         Allure.step("Проверка видимости элементов на странице");
@@ -63,7 +60,7 @@ public class MenuBarSteps {
 
     public NewsSteps openNewsPage() {
         Allure.step("Открытие страницы News");
-        waitingPageLoad();
+        menuBarPage.waitingPageLoad();
         menuBarPage.mainMenu.perform(click());
         menuBarPage.newsButton.perform(click());
         return new NewsSteps();
@@ -71,7 +68,7 @@ public class MenuBarSteps {
 
     public AboutSteps openAboutPage() {
         Allure.step("Отркытие страницы About");
-        waitingPageLoad();
+        menuBarPage.waitingPageLoad();
         menuBarPage.mainMenu.perform(click());
         menuBarPage.aboutButton.perform(click());
         return new AboutSteps();
@@ -79,7 +76,7 @@ public class MenuBarSteps {
 
     public LoveIsAllSteps openOurMission() {
         Allure.step("Открытие страницы Our Mission");
-        waitingPageLoad();
+        menuBarPage.waitingPageLoad();
         menuBarPage.ourMissionButton.perform(click());
         onView(isRoot()).perform(Utility.waitDisplayed(R.id.our_mission_title_text_view, 7000));
         return new LoveIsAllSteps();
@@ -99,7 +96,7 @@ public class MenuBarSteps {
 
     public AuthorizationSteps exitProfile() {
         Allure.step("Выход из профиля");
-        waitingPageLoad();
+        menuBarPage.waitingPageLoad();
         menuBarPage.profileButton.perform(click());
         Utility.waitDisplayed(android.R.id.content, 7000);
         menuBarPage.logOut.perform(click());

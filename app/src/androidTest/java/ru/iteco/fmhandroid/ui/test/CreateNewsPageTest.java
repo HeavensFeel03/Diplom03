@@ -10,9 +10,9 @@ import org.junit.runner.RunWith;
 
 import io.qameta.allure.android.runners.AllureAndroidJUnit4;
 import io.qameta.allure.kotlin.Description;
-import io.qameta.allure.kotlin.Epic;
 import io.qameta.allure.kotlin.junit4.DisplayName;
 import ru.iteco.fmhandroid.ui.AppActivity;
+import ru.iteco.fmhandroid.ui.data.page.CreateNewsPage;
 import ru.iteco.fmhandroid.ui.data.steps.AuthorizationSteps;
 import ru.iteco.fmhandroid.ui.data.steps.ControlPanelSteps;
 import ru.iteco.fmhandroid.ui.data.steps.CreateNewsSteps;
@@ -29,6 +29,7 @@ public class CreateNewsPageTest {
     MenuBarSteps menuBar = new MenuBarSteps();
     ControlPanelSteps controlPanel = new ControlPanelSteps();
     CreateNewsSteps controlPanelCreatePage = new CreateNewsSteps();
+    CreateNewsPage createNewsPage = new CreateNewsPage();
 
     @Rule
     public ActivityScenarioRule<AppActivity> ActivityScenarioRule =
@@ -40,13 +41,13 @@ public class CreateNewsPageTest {
             menuBar.openNewsPage();
             newsPage.clickControlPanel();
             controlPanel.clickCreate();
-            controlPanelCreatePage.waitingPageLoad();
+            createNewsPage.waitingPageLoad();
         } catch (Exception e) {
             authorizationSteps.authUser();
             menuBar.openNewsPage();
             newsPage.clickControlPanel();
             controlPanel.clickCreate();
-            controlPanelCreatePage.waitingPageLoad();
+            createNewsPage.waitingPageLoad();
         }
     }
 
@@ -55,7 +56,7 @@ public class CreateNewsPageTest {
     @Test
     public void shouldBeCreateAndVisibleNews() {
         controlPanelCreatePage.createNews2();
-        controlPanel.waitingPageLoad();
+        createNewsPage.waitingPageLoad();
         controlPanel.clickSort();
         controlPanel.titleNewsVisible("Найден котенок");
     }

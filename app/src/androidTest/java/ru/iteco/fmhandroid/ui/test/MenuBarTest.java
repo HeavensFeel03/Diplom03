@@ -13,6 +13,7 @@ import io.qameta.allure.kotlin.Description;
 import io.qameta.allure.kotlin.Epic;
 import io.qameta.allure.kotlin.junit4.DisplayName;
 import ru.iteco.fmhandroid.ui.AppActivity;
+import ru.iteco.fmhandroid.ui.data.page.MenuBarPage;
 import ru.iteco.fmhandroid.ui.data.steps.AboutSteps;
 import ru.iteco.fmhandroid.ui.data.steps.AuthorizationSteps;
 import ru.iteco.fmhandroid.ui.data.steps.LoveIsAllSteps;
@@ -25,6 +26,7 @@ import ru.iteco.fmhandroid.ui.data.steps.NewsSteps;
 public class MenuBarTest {
     AuthorizationSteps authPage = new AuthorizationSteps();
     MenuBarSteps menuBar = new MenuBarSteps();
+    MenuBarPage menuBarPage = new MenuBarPage();
     AboutSteps aboutPage = new AboutSteps();
     NewsSteps newsPage = new NewsSteps();
     LoveIsAllSteps ourMissionPage = new LoveIsAllSteps();
@@ -36,10 +38,10 @@ public class MenuBarTest {
     @Before
     public void setUp() {
         try {
-            menuBar.waitingPageLoad();
+            menuBarPage.waitingPageLoad();
         } catch (Exception e) {
             authPage.authUser();
-            menuBar.waitingPageLoad();
+            menuBarPage.waitingPageLoad();
         }
     }
 

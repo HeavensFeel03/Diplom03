@@ -1,6 +1,7 @@
 package ru.iteco.fmhandroid.ui.data.page;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
@@ -8,7 +9,9 @@ import androidx.test.espresso.Espresso;
 import androidx.test.espresso.ViewInteraction;
 import androidx.test.espresso.matcher.ViewMatchers;
 
+import io.qameta.allure.kotlin.Allure;
 import ru.iteco.fmhandroid.R;
+import ru.iteco.fmhandroid.ui.data.data.Utility;
 
 public class FilterNewsPage {
 
@@ -40,5 +43,10 @@ public class FilterNewsPage {
         refreshButton = onView(withText("REFRESH"));
         errorMessage = onView(withId(android.R.id.message));
         errorMessageOkButton = onView(withId(android.R.id.button1));
+    }
+
+    public void waitingPageLoad() {
+        Allure.step("Ожидание загрузки страницы");
+        onView(isRoot()).perform(Utility.waitDisplayed(R.id.filter_news_title_text_view, 7000));
     }
 }
